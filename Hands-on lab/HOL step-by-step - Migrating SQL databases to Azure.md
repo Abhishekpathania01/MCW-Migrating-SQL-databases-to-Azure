@@ -575,14 +575,14 @@ In this task, you will create a new online data migration project in DMS for the
 
 7. On the Migration Wizard **Select target** blade, enter the following:
 
-    - **Application ID**: Enter the `appId` value from the output of the `az ad sp create-for-rbac' command you executed in the last task.
+    - **Application ID**: Enter the `appId` value from the lab details page (pre-created SPN details)
     - **Key**: Enter the `password` value from the output of the `az ad sp create-for-rbac' command you executed in the last task.
     - **Subscription**: Select the subscription you are using for this hand-on lab.
     - **Target Azure SQL Managed Instance**: Select the sqlmi-UNIQUEID instance.
-    - **SQL Username**: Enter **sqlmiuser**
-    - **Password**: Enter **Password.1234567890**
+    - **SQL Username**: Enter **contosoadmin**
+    - **Password**: Enter **IAE5fAijit0w^rDM**
 
-    ![The Migration Wizard Select target blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-migration-wizard-select-target.png "Migration Wizard Select target")
+    ![The Migration Wizard Select target blade is displayed, with the values specified above entered into the appropriate fields.](media/sqlmiconnection.png "Migration Wizard Select target")
 
 8. Select **Save**.
 
@@ -706,11 +706,11 @@ In this task, you will connect to the SQL MI database using SSMS, and quickly ve
 
     - **Server name**: Enter the fully qualified domain name of your SQL managed instance, which you copied from the Azure Cloud Shell in a previous task.
     - **Authentication**: Select SQL Server Authentication.
-    - **Login**: Enter sqlmiuser
-    - **Password**: Enter Password.1234567890
+    - **Login**: Enter **contosoadmin**
+    - **Password**: Enter **IAE5fAijit0w^rDM**
     - Check the **Remember password** box.
 
-    ![The SQL managed instance details specified above are entered into the Connect to Server dialog.](media/ssms-connect-to-server-sql-mi.png "Connect to Server")
+    ![The SQL managed instance details specified above are entered into the Connect to Server dialog.](media/sqlserverconnection.png "Connect to Server")
 
 3. Select **Connect**.
 
@@ -856,16 +856,16 @@ In this task, you will make updates to the TailspinToys gamer info web applicati
 4. The value of the connection string should look like:
 
     ```sql
-    Server=tcp:your-sqlmi-host-fqdn-value,1433;Database=TailspinToys;User ID=sqlmiuser;Password=Password.1234567890;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=True;
+    Server=tcp:your-sqlmi-host-fqdn-value,1433;Database=TailspinToys;User ID=contosoadmin;Password=IAE5fAijit0w^rDM;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=True;
     ```
 
-5. In the Add/Edit connection string dialog, replace `your-sqlmi-host-fqdn-value` with the fully qualified domain name for your SQL MI that you copied to a text editor earlier from the Azure Cloud Shell.
+5. In the Add/Edit connection string dialog, replace `your-sqlmi-host-fqdn-value` with the fully qualified domain name for your SQL MI that you copied to a text editor earlier from the Azure Cloud Shell. Also replace 'User ID' with **contosoadmin** and 'Password' with **IAE5fAijit0w^rDM**
 
-    ![The your-sqlmi-host-fqdn-value string is highlighted in the connection string.](media/app-service-configuration-edit-conn-string.png "Edit Connection String")
+    ![The your-sqlmi-host-fqdn-value string is highlighted in the connection string.](media/webappcontextconnectionstring.png "Edit Connection String")
 
 6. The updated value should look similar to the following screenshot.
 
-    ![The updated connection string is displayed, with the fully qualified domain name of SQL MI highlighted within the string.](media/app-service-configuration-edit-conn-string-value.png "Connection string value")
+    ![The updated connection string is displayed, with the fully qualified domain name of SQL MI highlighted within the string.](media/updatedconnectionstring.png "Connection string value")
 
 7. Select **Update**.
 
@@ -891,7 +891,7 @@ In this exercise, you will Integrate your App Service with the virtual network t
 
 In this task, you will configure the client address pool. This is a range of private IP addresses that you will specify below. Clients that connect over a Point-to-Site VPN dynamically receive an IP address from this range. You will use a private IP address range that does not overlap with the VNet you will connect to.
 
-1. Navigate to the **hands-on-lab-SUFFIX-vnet-gateway** Virtual network gateway in the [Azure portal](https://portal.azure.com) by selecting it from the list of resources in the hands-on-lab-SUFFIX resource group.
+1. Navigate to the **Hands-on-lab-VPN** Virtual network gateway in the [Azure portal](https://portal.azure.com) by selecting it from the list of resources in the **SQLMI-Shared-RG** resource group.
 
     ![The Virtual network gateway resource is highlighted in the list of resources.](media/resource-group-vnet-gateway.png "Resources")
 
@@ -962,7 +962,7 @@ In this exercise you will enable Advanced Data Security (ADS) on your SQL MI dat
 
 In this task, you will enable ADS for all databases on the Managed Instance.
 
-1. In the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-hand menu, select the **hands-on-lab-SUFFIX** resource group, and then select the **TailspinToys** Managed database resource from the list.
+1. In the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-hand menu, select the **SQLMI-Shared-RG** resource group, and then select the **TailspinToys** Managed database resource from the list.
 
     ![The TailspinToys Managed Database is highlighted in the resources list.](media/resources-sql-mi-database.png "Resources")
 
@@ -1068,11 +1068,11 @@ In this task, you will review an assessment report generated by ADS for the `Tai
 
     - **Server name**: Enter the fully qualified domain name of your SQL managed instance, which you copied from the Azure Cloud Shell in a previous task.
     - **Authentication**: Select SQL Server Authentication.
-    - **Login**: Enter sqlmiuser
-    - **Password**: Enter Password.1234567890
+    - **Login**: Enter **contosoadmin**
+    - **Password**: Enter **IAE5fAijit0w^rDM**
     - Check the **Remember password** box.
 
-    ![The SQL managed instance details specified above are entered into the Connect to Server dialog.](media/ssms-18-connect-to-server.png "Connect to Server")
+    ![The SQL managed instance details specified above are entered into the Connect to Server dialog.](media/sqlserverconnection.png "Connect to Server")
 
 8. In SSMS, select **New Query** from the toolbar, paste the following SQL script into the new query window.
 
