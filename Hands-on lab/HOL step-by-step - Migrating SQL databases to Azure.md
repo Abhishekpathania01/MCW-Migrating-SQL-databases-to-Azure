@@ -25,44 +25,44 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 **Contents**
 
-- [Migrating SQL databases to Azure hands-on lab step-by-step](#migrating-sql-databases-to-azure-hands-on-lab-step-by-step)
-  - [Abstract and learning objectives](#abstract-and-learning-objectives)
-  - [Overview](#overview)
-  - [Solution architecture](#solution-architecture)
-  - [Requirements](#requirements)
-  - [Exercise 1: Perform database assessments](#exercise-1-perform-database-assessments)
-    - [Task 1: Restore the TailspinToys database on the SqlServer2008 VM]
-    - [Task 2: Perform assessment for migration to Azure SQL Database]
-    - [Task 3: Perform assessment for migration to Azure SQL Database Managed Instance]
-  - [Exercise 2: Migrate the database to SQL MI]
-    - [Task 1: Create an SMB network share on the SqlServer2008 VM]
-    - [Task 2: Change MSSQLSERVER service to run under sqlmiuser account]
-    - [Task 3: Create backup of TailspinToys database]
-    - [Task 4: Retrieve SQL MI and SQL Server 2008 VM connection information]
-    - [Task 5: Create a service principal]
-    - [Task 6: Create and run an online data migration project]
-    - [Task 7: Perform migration cutover]
-    - [Task 8: Verify database and transaction log migration]
-  - [Exercise 3: Update the web application to use the new SQL MI database]
-    - [Task 1: Deploy the web app to Azure]
-    - [Task 2: Update App Service configuration](
-  - [Exercise 4: Integrate App Service with the virtual network]
-    - [Task 1: Set point-to-site addresses]
-    - [Task 2: Configure VNet integration with App Services]
-    - [Task 3: Open the web application]
-  - [Exercise 5: Improve database security posture with Advanced Data Security]
-    - [Task 1: Enable Advanced Data Security]
-    - [Task 2: Configure SQL Data Discovery and Classification]
-    - [Task 3: Review Advanced Data Security Vulnerability Assessment]
-  - [Exercise 6: Enable Dynamic Data Masking]
-    - [Task 1: Enable DDM on credit card numbers]
-    - [Task 2: Apply DDM to email addresses]
-  - [Exercise 7: Use online secondary for read-only queries]
-    - [Task 1: View Leaderboard report in TailspinToys web application]
-    - [Task 2: Update read only connection string]
-    - [Task 3: Reload Leaderboard report in the Tailspin Toys web app]
-    - [Task 1: Delete Azure resource groups]
-    - [Task 2: Delete the tailspin-toys service principal]
+- Migrating SQL databases to Azure hands-on lab step-by-step
+  - Abstract and learning objectives
+  - Overview
+  - Solution architecture
+  - Requirements
+  - Exercise 1: Perform database assessments
+    - Task 1: Restore the TailspinToys database on the SqlServer2008 VM
+    - Task 2: Perform assessment for migration to Azure SQL Database
+    - Task 3: Perform assessment for migration to Azure SQL Database Managed Instance
+  - Exercise 2: Migrate the database to SQL MI
+    - Task 1: Create an SMB network share on the SqlServer2008 VM
+    - Task 2: Change MSSQLSERVER service to run under sqlmiuser account
+    - Task 3: Create backup of TailspinToys database
+    - Task 4: Retrieve SQL MI and SQL Server 2008 VM connection information
+    - Task 5: Create a service principal
+    - Task 6: Create and run an online data migration project
+    - Task 7: Perform migration cutover
+    - Task 8: Verify database and transaction log migration
+  - Exercise 3: Update the web application to use the new SQL MI database
+    - Task 1: Deploy the web app to Azure
+    - Task 2: Update App Service configuration
+  - Exercise 4: Integrate App Service with the virtual network
+    - Task 1: Set point-to-site addresses
+    - Task 2: Configure VNet integration with App Services
+    - Task 3: Open the web application
+  - Exercise 5: Improve database security posture with Advanced Data Security
+    - Task 1: Enable Advanced Data Security
+    - Task 2: Configure SQL Data Discovery and Classification
+    - Task 3: Review Advanced Data Security Vulnerability Assessment
+  - Exercise 6: Enable Dynamic Data Masking
+    - Task 1: Enable DDM on credit card numbers
+    - Task 2: Apply DDM to email addresses
+  - Exercise 7: Use online secondary for read-only queries
+    - Task 1: View Leaderboard report in TailspinToys web application
+    - Task 2: Update read only connection string
+    - Task 3: Reload Leaderboard report in the Tailspin Toys web app
+    - Task 1: Delete Azure resource groups
+    - Task 2: Delete the tailspin-toys service principal
 
 # Migrating SQL databases to Azure hands-on lab step-by-step
 
