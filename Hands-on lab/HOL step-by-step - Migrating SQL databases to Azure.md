@@ -470,20 +470,20 @@ In this task, you will use the Azure Cloud shell to retrieve the information nec
 
     ![In the Azure Cloud Shell dialog, a message is displayed that requesting a Cloud Shell succeeded, and the PS Azure prompt is displayed.](media/cloud-shell-ps-azure-prompt.png "Azure Cloud Shell")
 
-5. At the prompt, you will retrieve information about SQL MI in the hands-on-lab-SUFFIX resource group by entering the following PowerShell command, **replacing SUFFIX** with your unique identifier:
+5. At the prompt, you will retrieve information about SQL MI in the **SQLMI-Shared-RG** resource group by entering the following PowerShell command, 
 
     ```powershell
-    az sql mi list --resource-group hands-on-lab-SUFFIX
+    az sql mi list --resource-group SQLMI-Shared-RG
     ```
 
 6. Within the output of the above command, locate and copy the value of the `fullyQualifiedDomainName` property. Paste the value into a text editor, such as Notepad.exe, for later reference.
 
     ![The output from the az sql mi list command is displayed in the Cloud Shell, and the fullyQualifiedDomainName property and value are highlighted.](media/cloud-shell-az-sql-mi-list-output.png "Azure Cloud Shell")
 
-7. Next, you will enter a second command to retrieve the public IP address of the SqlSerer2008 VM, which you will use to connect to the database on that server. Enter the following PowerShell command, **replacing SUFFIX** with your unique identifier:
+7. Next, you will enter a second command to retrieve the public IP address of the SqlSerer2008 VM, which you will use to connect to the database on that server. Enter the following PowerShell command, **replacing xxxxxx** with your unique identity:
 
     ```powershell
-    az vm list-ip-addresses -g hands-on-lab-SUFFIX -n SqlServer2008
+    az vm list-ip-addresses -g ODL-hands-on-lab-xxxxx -n SqlServer2008
     ```
 
 8. Within the output of the command above, locate and copy the value of the `ipAddress` property within the `publicIpAddresses` object. Paste the value into a text editor, such as Notepad.exe, for later reference.
@@ -492,53 +492,8 @@ In this task, you will use the Azure Cloud shell to retrieve the information nec
 
 9. Leave the Azure Cloud Shell open for the next task.
 
-### Task 5: Create a service principal
 
-In this task, you will use the Azure Cloud Shell to create an Azure Active Directory (Azure AD) application and service principal (SP) that will provide DMS access to Azure SQL MI. You will grant the SP permissions to the hands-on-lab-SUFFIX resource group.
-
-> **IMPORTANT**: You must have rights within your Azure AD tenant to create applications and assign roles to complete this task.
-
-1. Next, you will issue a command to create a service principal named **tailspin-toys** and assign it contributor permissions to your **hands-on-lab-SUFFIX** resource group.
-
-2. First, you need to retrieve your subscription ID. Enter the following at the Cloud Shell prompt:
-
-    ```powershell
-    az account list --output table
-    ```
-
-3. In the output table, locate the subscription you are using for this hands-on lab, and copy the SubscriptionId value into a text editor, such as Notepad, for use below.
-
-4. Next, enter the following `az ad sp create-for-rbac` command at the Cloud Shell prompt, replacing `{SubscriptionID}` with the value you copied above and `{ResourceGroupName}` with the name of your **hands-on-lab-SUFFIX** resource group, and then press `Enter` to run the command.
-
-    ```powershell
-    az ad sp create-for-rbac -n "tailspin-toys" --role owner --scopes subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}
-    ```
-
-    ![The az ad sp create-for-rbac command is entered into the Cloud Shell, and the output of the command is displayed.](media/azure-cli-create-sp.png "Azure CLI")
-
-5. Copy the output from the command into a text editor, as you will need the `appId` and `password` in the next task. The output should be similar to:
-
-    ```json
-    {
-        "appId": "aeab3b83-9080-426c-94a3-4828db8532e9",
-        "displayName": "tailspin-toys",
-        "name": "http://tailspin-toys",
-        "password": "76ff5bae-8d25-469a-a74b-4a33ad868585",
-        "tenant": "d280491c-b27a-XXXX-XXXX-XXXXXXXXXXXX"
-    }
-    ```
-
-6. To verify the role assignment, select **Access control (IAM)** from the left-hand menu of the **hands-on-lab-SUFFIX** resource group blade, and then select the **Role assignments** tab and locate **tailspin-toys** under the OWNER role.
-
-    ![The Role assignments tab is displayed, with tailspin-toys highlighted under OWNER in the list.](media/rg-hands-on-lab-role-assignments.png "Role assignments")
-
-7. Next, you will issue another command to grant the CONTRIBUTOR role at the subscription level to the newly created service principal. At the Cloud Shell prompt, run the following command:
-
-    ```powershell
-    az role assignment create --assignee http://tailspin-toys --role contributor
-    ```
-
-### Task 6: Create and run an online data migration project
+### Task 5: Create and run an online data migration project
 
 In this task, you will create a new online data migration project in DMS for the `TailspinToys` database.
 
@@ -620,7 +575,7 @@ In this task, you will create a new online data migration project in DMS for the
 
     ![In the migration monitoring window, a status of Log files uploading is highlighted.](media/dms-migration-wizard-status-log-files-uploading.png "Migration status")
 
-### Task 7: Perform migration cutover
+### Task 6: Perform migration cutover
 
 Since you performed the migration as an "online data migration," the migration wizard will continue to monitor the SMB network share for newly added log files. This allows for any updates that happen on the source database to be captured until you cut over to the SQL MI database. In this task, you will add a record to one of the database tables, backup the logs, and complete the migration of the `TailspinToys` database by cutting over to the SQL MI database.
 
@@ -694,7 +649,7 @@ Since you performed the migration as an "online data migration," the migration w
 
 15. You have now successfully migrated the `TailspinToys` database to Azure SQL Managed Instance.
 
-### Task 8: Verify database and transaction log migration
+### Task 7: Verify database and transaction log migration
 
 In this task, you will connect to the SQL MI database using SSMS, and quickly verify the migration.
 
