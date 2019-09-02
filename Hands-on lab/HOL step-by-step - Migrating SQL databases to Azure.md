@@ -31,39 +31,38 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Solution architecture](#solution-architecture)
   - [Requirements](#requirements)
   - [Exercise 1: Perform database assessments](#exercise-1-perform-database-assessments)
-    - [Task 1: Restore the TailspinToys database on the SqlServer2008 VM](#task-1-restore-the-tailspintoys-database-on-the-sqlserver2008-vm)
-    - [Task 2: Perform assessment for migration to Azure SQL Database](#task-2-perform-assessment-for-migration-to-azure-sql-database)
-    - [Task 3: Perform assessment for migration to Azure SQL Database Managed Instance](#task-3-perform-assessment-for-migration-to-azure-sql-database-managed-instance)
-  - [Exercise 2: Migrate the database to SQL MI](#exercise-2-migrate-the-database-to-sql-mi)
-    - [Task 1: Create an SMB network share on the SqlServer2008 VM](#task-1-create-an-smb-network-share-on-the-sqlserver2008-vm)
-    - [Task 2: Change MSSQLSERVER service to run under sqlmiuser account](#task-2-change-mssqlserver-service-to-run-under-sqlmiuser-account)
-    - [Task 3: Create backup of TailspinToys database](#task-3-create-backup-of-tailspintoys-database)
-    - [Task 4: Retrieve SQL MI and SQL Server 2008 VM connection information](#task-4-retrieve-sql-mi-and-sql-server-2008-vm-connection-information)
-    - [Task 5: Create a service principal](#task-5-create-a-service-principal)
-    - [Task 6: Create and run an online data migration project](#task-6-create-and-run-an-online-data-migration-project)
-    - [Task 7: Perform migration cutover](#task-7-perform-migration-cutover)
-    - [Task 8: Verify database and transaction log migration](#task-8-verify-database-and-transaction-log-migration)
-  - [Exercise 3: Update the web application to use the new SQL MI database](#exercise-3-update-the-web-application-to-use-the-new-sql-mi-database)
-    - [Task 1: Deploy the web app to Azure](#task-1-deploy-the-web-app-to-azure)
-    - [Task 2: Update App Service configuration](#task-2-update-app-service-configuration)
-  - [Exercise 4: Integrate App Service with the virtual network](#exercise-4-integrate-app-service-with-the-virtual-network)
-    - [Task 1: Set point-to-site addresses](#task-1-set-point-to-site-addresses)
-    - [Task 2: Configure VNet integration with App Services](#task-2-configure-vnet-integration-with-app-services)
-    - [Task 3: Open the web application](#task-3-open-the-web-application)
-  - [Exercise 5: Improve database security posture with Advanced Data Security](#exercise-5-improve-database-security-posture-with-advanced-data-security)
-    - [Task 1: Enable Advanced Data Security](#task-1-enable-advanced-data-security)
-    - [Task 2: Configure SQL Data Discovery and Classification](#task-2-configure-sql-data-discovery-and-classification)
-    - [Task 3: Review Advanced Data Security Vulnerability Assessment](#task-3-review-advanced-data-security-vulnerability-assessment)
-  - [Exercise 6: Enable Dynamic Data Masking](#exercise-6-enable-dynamic-data-masking)
-    - [Task 1: Enable DDM on credit card numbers](#task-1-enable-ddm-on-credit-card-numbers)
-    - [Task 2: Apply DDM to email addresses](#task-2-apply-ddm-to-email-addresses)
-  - [Exercise 7: Use online secondary for read-only queries](#exercise-7-use-online-secondary-for-read-only-queries)
-    - [Task 1: View Leaderboard report in TailspinToys web application](#task-1-view-leaderboard-report-in-tailspintoys-web-application)
-    - [Task 2: Update read only connection string](#task-2-update-read-only-connection-string)
-    - [Task 3: Reload Leaderboard report in the Tailspin Toys web app](#task-3-reload-leaderboard-report-in-the-tailspin-toys-web-app)
-  - [After the hands-on lab](#after-the-hands-on-lab)
-    - [Task 1: Delete Azure resource groups](#task-1-delete-azure-resource-groups)
-    - [Task 2: Delete the tailspin-toys service principal](#task-2-delete-the-tailspin-toys-service-principal)
+    - [Task 1: Restore the TailspinToys database on the SqlServer2008 VM]
+    - [Task 2: Perform assessment for migration to Azure SQL Database]
+    - [Task 3: Perform assessment for migration to Azure SQL Database Managed Instance]
+  - [Exercise 2: Migrate the database to SQL MI]
+    - [Task 1: Create an SMB network share on the SqlServer2008 VM]
+    - [Task 2: Change MSSQLSERVER service to run under sqlmiuser account]
+    - [Task 3: Create backup of TailspinToys database]
+    - [Task 4: Retrieve SQL MI and SQL Server 2008 VM connection information]
+    - [Task 5: Create a service principal]
+    - [Task 6: Create and run an online data migration project]
+    - [Task 7: Perform migration cutover]
+    - [Task 8: Verify database and transaction log migration]
+  - [Exercise 3: Update the web application to use the new SQL MI database]
+    - [Task 1: Deploy the web app to Azure]
+    - [Task 2: Update App Service configuration](
+  - [Exercise 4: Integrate App Service with the virtual network]
+    - [Task 1: Set point-to-site addresses]
+    - [Task 2: Configure VNet integration with App Services]
+    - [Task 3: Open the web application]
+  - [Exercise 5: Improve database security posture with Advanced Data Security]
+    - [Task 1: Enable Advanced Data Security]
+    - [Task 2: Configure SQL Data Discovery and Classification]
+    - [Task 3: Review Advanced Data Security Vulnerability Assessment]
+  - [Exercise 6: Enable Dynamic Data Masking]
+    - [Task 1: Enable DDM on credit card numbers]
+    - [Task 2: Apply DDM to email addresses]
+  - [Exercise 7: Use online secondary for read-only queries]
+    - [Task 1: View Leaderboard report in TailspinToys web application]
+    - [Task 2: Update read only connection string]
+    - [Task 3: Reload Leaderboard report in the Tailspin Toys web app]
+    - [Task 1: Delete Azure resource groups]
+    - [Task 2: Delete the tailspin-toys service principal]
 
 # Migrating SQL databases to Azure hands-on lab step-by-step
 
