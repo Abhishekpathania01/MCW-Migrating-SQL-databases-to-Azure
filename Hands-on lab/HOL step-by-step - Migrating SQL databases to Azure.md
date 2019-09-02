@@ -480,7 +480,7 @@ In this task, you will use the Azure Cloud shell to retrieve the information nec
 
     ![The output from the az sql mi list command is displayed in the Cloud Shell, and the fullyQualifiedDomainName property and value are highlighted.](media/cloud-shell-az-sql-mi-list-output.png "Azure Cloud Shell")
 
-7. Next, you will enter a second command to retrieve the public IP address of the SqlSerer2008 VM, which you will use to connect to the database on that server. Enter the following PowerShell command, **replacing xxxxxx** with your unique identity:
+7. Next, you will enter a second command to retrieve the public IP address of the SqlSerer2008 VM, which you will use to connect to the database on that server. Enter the following PowerShell command, **replacing xxxxx** with your unique identity number:
 
     ```powershell
     az vm list-ip-addresses -g ODL-hands-on-lab-xxxxx -n SqlServer2008
