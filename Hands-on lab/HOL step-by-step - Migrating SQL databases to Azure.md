@@ -466,7 +466,7 @@ In this task, you will use the Azure Cloud shell to retrieve the information nec
 
 4. Choose existing resource group **ODL-hands-on-lab-xxxxx** then in the next column enter the value for storage account name which should be unique and lowercase. Also for file share name enter any unique value such as 673683 and click on **Create Storage** 
 
-    ![In this You have to specify the existing resoucre group for creating a new storage account](media/createstorageaccount.png "Azure Cloud Shell")
+    ![Here You have to specify the existing resoucre group for creating a new storage account.](media/createstorageaccount.png "Azure Cloud Shell")
 
 5. After a moment, you will receive a message that you have successfully requested a Cloud Shell, and be presented with a PS Azure prompt.
 
