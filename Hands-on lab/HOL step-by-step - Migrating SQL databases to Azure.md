@@ -860,6 +860,8 @@ In this task, you will configure the client address pool. This is a range of pri
 
 3. On the **Point-to-site** configuration page, set the following configuration:
 
+   > Note: If you see that IP is already configured, you can skip this step. 
+
     - **Address pool**: Add a private IP address range that you want to use. The address space must be in one of the following address blocks, but should not overlap the address space used by the VNet.
       - `10.0.0.0/8` - This means an IP address range from 10.0.0.0 to 10.255.255.255
       - `172.16.0.0/12` - This means an IP address range from 172.16.0.0 to 172.31.255.255
@@ -1249,7 +1251,7 @@ In this task, you will enable Read Scale-Out for the `TailspinToys`database, usi
 4. The `TailspinToysReadOnlyContext` connection string should now look something like the following:
 
    ```sql
-   Server=tcp:sqlmi-abcmxwzksiqoo.15b8611394c5.database.windows.net,1433;Database=TailspinToys;User ID=sqlmiuser;Password=Password.1234567890;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadOnly;
+   Server=tcp:sqlmi-abcmxwzksiqoo.15b8611394c5.database.windows.net,1433;Database=TailspinToys;User ID=contosoadmin;Password=IAE5fAijit0w^rDM;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadOnly;
    ```
 
 5. Select **Update**.
