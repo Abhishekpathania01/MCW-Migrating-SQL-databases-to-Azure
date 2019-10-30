@@ -158,7 +158,7 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
 
 12. In the **Locate Backup File** dialog, browse to the location you saved the downloaded `TailspinToys.bak` file, select that file, and then select **OK**.
 
-**NOTE**: **You must have unique database file name such as** ***Tailspintoys+YourName*** a**s you renamed the database file name after downloading in** **step 6** **so please make sure to use the same database name here as well**
+**NOTE**: **You must have unique database file name such as** ***Tailspintoys+YourName*** as you renamed the database file name after downloading in **Step 6** **so please make sure to use the same database name here as well**
 
    ![In the Location Backup File dialog, the TailspinToys.bak file is selected and highlighted.](media/ssms-restore-database-locate-backup-file.png "Locate Backup File")
 
