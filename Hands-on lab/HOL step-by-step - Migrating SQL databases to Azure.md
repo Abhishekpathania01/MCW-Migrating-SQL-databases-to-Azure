@@ -162,21 +162,21 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
 
    ![In the Location Backup File dialog, the TailspinToys.bak file is selected and highlighted.](media/ssms-restore-database-locate-backup-file.png "Locate Backup File")
 
-13. Select **OK** on the **Select backup devices** dialog. This will return you to the Restore Database dialog. The dialog will now contain the information required to restore the `TailspinToys` database.
+13.Select **OK** on the **Select backup devices** dialog. This will return you to the Restore Database dialog. The dialog will now contain the information required to restore the `TailspinToys` database.
 
     ![The completed Restore Database dialog is displayed, with the TailSpinToys database specified as the target.](media/ssms-restore-database.png "Restore Database")
 
-14. Select **OK** to start the restore.
+14.Select **OK** to start the restore.
 
-15. Select **OK** in the dialog when the database restore is complete.
+15.Select **OK** in the dialog when the database restore is complete.
 
     ![A dialog is displayed with a message that the database TailspinToys was restored successfully.](media/ssms-restore-database-success.png "Restored successfully")
 
-16. Next, you will execute a script in SSMS, which will reset the `sa` password, enable mixed mode authentication, enable Service broker, create the `WorkshopUser` account, and change the database recovery model to FULL. To create the script, open a new query window in SSMS by selecting **New Query** in the SSMS toolbar.
+16.Next, you will execute a script in SSMS, which will reset the `sa` password, enable mixed mode authentication, enable Service broker, create the `WorkshopUser` account, and change the database recovery model to FULL. To create the script, open a new query window in SSMS by selecting **New Query** in the SSMS toolbar.
 
     ![The New Query button is highlighted in the SSMS toolbar.](media/ssms-new-query.png "SSMS Toolbar")
 
-17. Copy and paste the SQL script below into the new query window:
+17.Copy and paste the SQL script below into the new query window:
 
     ```sql
     USE master;
@@ -219,15 +219,15 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
     GO
     ```
 
-18. To run the script, select **Execute** from the SSMS toolbar.
+18.To run the script, select **Execute** from the SSMS toolbar.
 
     ![The Execute button is highlighted in the SSMS toolbar.](media/ssms-execute.png "SSMS Toolbar")
 
-19. For Mixed Mode Authentication and the new `sa` password to take effect, you must restart the SQL Server (MSSQLSERVER) Service on the SqlServer2008 VM. To do this, you can use SSMS. Right-click the SQLSERVER2008 instance in the SSMS Object Explorer, and then select **Restart** from the context menu.
+19.For Mixed Mode Authentication and the new `sa` password to take effect, you must restart the SQL Server (MSSQLSERVER) Service on the SqlServer2008 VM. To do this, you can use SSMS. Right-click the SQLSERVER2008 instance in the SSMS Object Explorer, and then select **Restart** from the context menu.
 
     ![In the SSMS Object Explorer, the context menu for the SQLSERVER2008 instance is displayed, and Restart is highlighted.](media/ssms-object-explorer-restart-sqlserver2008.png "Object Explorer")
 
-20. When prompted about restarting the MSSQLSERVER service, select **Yes**. The service will take a few seconds to restart.
+20.When prompted about restarting the MSSQLSERVER service, select **Yes**. The service will take a few seconds to restart.
 
     ![The Yes button is highlighted on the dialog asking if you are sure you want to restart the MSSQLSERVER service.](media/ssms-restart-service.png "Restart MSSQLSERVER service")
 
