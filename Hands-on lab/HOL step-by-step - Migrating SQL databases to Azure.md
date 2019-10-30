@@ -134,6 +134,8 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
 
 6. Once logged into the SqlServer2008 VM, download a [backup of the TailspinToys database](https://raw.githubusercontent.com/microsoft/Migrating-SQL-databases-to-Azure/master/Hands-on%20lab/lab-files/Database/TailspinToys.bak), **then you must rename this database file name such as TailspinToys+yourName: example: TailSpinToysJohn** and save it to the `C:\` of the VM.
 
+ **Note**: Now your database file name sould not be ***TailspinToys***. 
+
 7. Next, open **Microsoft SQL Server Management Studio 17** by entering "sql server" into the search bar in the Windows Start menu.
 
     ![SQL Server is entered into the Windows Start menu search box, and Microsoft SQL Server Management Studio 17 is highlighted in the search results.](media/start-menu-ssms-17.png "Windows start menu search")
@@ -146,7 +148,7 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
 
     ![In the SSMS Object Explorer, the context menu for Databases is displayed and Restore Database is highlighted.](media/ssms-databases-restore.png "SSMS Object Explorer")
 
-10. You will now restore the `TailspinToys` database using the downloaded `TailspinToys.bak` file. On the **General** page of the Restore Database dialog, select **Device** under Source, and then select the Browse (...) button to the right of the Device box.
+10. You will now restore the `TailspinToys` (your database name) database using the downloaded `TailspinToys.bak` file. On the **General** page of the Restore Database dialog, select **Device** under Source, and then select the Browse (...) button to the right of the Device box.
 
     ![Under Source in the Restore Database dialog, Device is selected and highlighted, and the Browse button is highlighted.](media/ssms-restore-database-source.png "Restore Database source")
 
@@ -155,6 +157,8 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
     ![In the Select backup devices dialog, the Add button is highlighted.](media/ssms-restore-database-select-devices.png "Select backup devices")
 
 12. In the **Locate Backup File** dialog, browse to the location you saved the downloaded `TailspinToys.bak` file, select that file, and then select **OK**.
+
+**NOTE**: **You must have unique database file name such as ***Tailspintoys+YourName*** as you renamed the database file name after downloading in **step 6** so please make sure to use the same database name here as well. 
 
     ![In the Location Backup File dialog, the TailspinToys.bak file is selected and highlighted.](media/ssms-restore-database-locate-backup-file.png "Locate Backup File")
 
