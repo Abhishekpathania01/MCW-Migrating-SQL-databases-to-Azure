@@ -488,7 +488,7 @@ In this task, you will use the Azure Cloud shell to retrieve the information nec
 7. Next, you will enter a second command to retrieve the public IP address of the SqlSerer2008 VM, which you will use to connect to the database on that server. Enter the following PowerShell command, **replacing xxxxx** with your unique identity number:
 
     ```powershell
-    az vm list-ip-addresses -g ODL-hands-on-lab-xxxxx -n SqlServer2008
+    az vm list-ip-addresses -g ODL-migrate-sql-xxxxx -n SqlServer2008
     ```
 
 8. Within the output of the command above, locate and copy the value of the `ipAddress` property within the `publicIpAddresses` object. Paste the value into a text editor, such as Notepad.exe, for later reference.
