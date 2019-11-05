@@ -174,11 +174,12 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
 
 16.Next, you will execute a script in SSMS, which will reset the `sa` password, enable mixed mode authentication, enable Service broker, create the `WorkshopUser` account, and change the database recovery model to FULL. To create the script, open a new query window in SSMS by selecting **New Query** in the SSMS toolbar.
 
-    ![The New Query button is highlighted in the SSMS toolbar.](media/ssms-new-query.png "SSMS Toolbar")
+   ![The New Query button is highlighted in the SSMS toolbar.](media/ssms-new-query.png "SSMS Toolbar")
 
 17.Copy and paste the SQL script below into the new query window:
 
-    ```sql
+    ```
+    sql
     USE master;
     GO
 
