@@ -164,13 +164,13 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
 
 13.Select **OK** on the **Select backup devices** dialog. This will return you to the Restore Database dialog. The dialog will now contain the information required to restore the `TailspinToys` database.
 
-    ![The completed Restore Database dialog is displayed, with the TailSpinToys database specified as the target.](media/ssms-restore-database.png "Restore Database")
+   [The completed Restore Database dialog is displayed, with the TailSpinToys database specified as the target.](media/ssms-restore-database.png "Restore Database")
 
 14.Select **OK** to start the restore.
 
 15.Select **OK** in the dialog when the database restore is complete.
 
-    ![A dialog is displayed with a message that the database TailspinToys was restored successfully.](media/ssms-restore-database-success.png "Restored successfully")
+   ![A dialog is displayed with a message that the database TailspinToys was restored successfully.](media/ssms-restore-database-success.png "Restored successfully")
 
 16.Next, you will execute a script in SSMS, which will reset the `sa` password, enable mixed mode authentication, enable Service broker, create the `WorkshopUser` account, and change the database recovery model to FULL. To create the script, open a new query window in SSMS by selecting **New Query** in the SSMS toolbar.
 
@@ -178,8 +178,7 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
 
 17.Copy and paste the SQL script below into the new query window:
 
-    ```
-    sql
+    ```sql
     USE master;
     GO
 
