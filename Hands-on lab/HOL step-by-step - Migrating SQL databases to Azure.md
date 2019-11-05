@@ -176,7 +176,7 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
 
    ![The New Query button is highlighted in the SSMS toolbar.](media/ssms-new-query.png "SSMS Toolbar")
 
-17. Copy and paste the SQL script below into the new query window:
+17.Copy and paste the SQL script below into the new query window:
 
     ```sql
     USE master;
