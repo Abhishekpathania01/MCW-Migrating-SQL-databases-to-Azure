@@ -176,7 +176,7 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
 
    ![The New Query button is highlighted in the SSMS toolbar.](media/ssms-new-query.png "SSMS Toolbar")
 
-17.Copy and paste the SQL script below into the new query window:
+17. Copy and paste the SQL script below into the new query window:
 
     ```sql
     USE master;
@@ -217,11 +217,11 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
     -- Update the recovery model of the database to FULL
     ALTER DATABASE TailspinToys SET RECOVERY FULL;
     GO
-    ``` 
+    ```
 
 18.To run the script, select **Execute** from the SSMS toolbar.
-
-    ![The Execute button is highlighted in the SSMS toolbar.](media/ssms-execute.png "SSMS Toolbar")
+    
+   ![The Execute button is highlighted in the SSMS toolbar.](media/ssms-execute.png "SSMS Toolbar")
 
 19.For Mixed Mode Authentication and the new `sa` password to take effect, you must restart the SQL Server (MSSQLSERVER) Service on the SqlServer2008 VM. To do this, you can use SSMS. Right-click the SQLSERVER2008 instance in the SSMS Object Explorer, and then select **Restart** from the context menu.
 
