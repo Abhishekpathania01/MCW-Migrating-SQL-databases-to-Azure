@@ -217,7 +217,7 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
     -- Update the recovery model of the database to FULL
     ALTER DATABASE TailspinToys SET RECOVERY FULL;
     GO
-    ```
+    ``` 
 
 18.To run the script, select **Execute** from the SSMS toolbar.
 
