@@ -178,46 +178,46 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
 
 17.&nbsp;Copy and paste the SQL script below into the new query window:
 
-    ```sql
-    USE master;
-    GO
+   ```sql
+   USE master;
+   GO
 
-    -- SET the sa password
-    ALTER LOGIN [sa] WITH PASSWORD=N'Password.1234567980';
-    GO
+   -- SET the sa password
+   ALTER LOGIN [sa] WITH PASSWORD=N'Password.1234567980';
+   GO
 
-    -- Enable Service Broker on the database
-    ALTER DATABASE TailspinToys SET ENABLE_BROKER WITH ROLLBACK immediate;
-    GO
+   -- Enable Service Broker on the database
+   ALTER DATABASE TailspinToys SET ENABLE_BROKER WITH ROLLBACK immediate;
+   GO
 
-    -- Enable Mixed Mode Authentication
-    EXEC xp_instance_regwrite N'HKEY_LOCAL_MACHINE',
-    N'Software\Microsoft\MSSQLServer\MSSQLServer', N'LoginMode', REG_DWORD, 2;
-    GO
+   -- Enable Mixed Mode Authentication
+   EXEC xp_instance_regwrite N'HKEY_LOCAL_MACHINE',
+   N'Software\Microsoft\MSSQLServer\MSSQLServer', N'LoginMode', REG_DWORD, 2;
+   GO
 
-    -- Create a login and user named WorkshopUser
-    CREATE LOGIN WorkshopUser WITH PASSWORD = N'Password.1234567890';
-    GO
+   -- Create a login and user named WorkshopUser
+   CREATE LOGIN WorkshopUser WITH PASSWORD = N'Password.1234567890';
+   GO
 
-    EXEC sp_addsrvrolemember
-        @loginame = N'WorkshopUser',
-        @rolename = N'sysadmin';
-    GO
+   EXEC sp_addsrvrolemember
+       @loginame = N'WorkshopUser',
+       @rolename = N'sysadmin';
+   GO
 
-    USE TailspinToys;
-    GO
+   USE TailspinToys;
+   GO
 
-    IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N'WorkshopUser')
-    BEGIN
-        CREATE USER [WorkshopUser] FOR LOGIN [WorkshopUser]
-        EXEC sp_addrolemember N'db_datareader', N'WorkshopUser'
-    END;
-    GO
+   IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N'WorkshopUser')
+   BEGIN
+       CREATE USER [WorkshopUser] FOR LOGIN [WorkshopUser]
+       EXEC sp_addrolemember N'db_datareader', N'WorkshopUser'
+   END;
+   GO
 
-    -- Update the recovery model of the database to FULL
-    ALTER DATABASE TailspinToys SET RECOVERY FULL;
-    GO
-    ```
+   -- Update the recovery model of the database to FULL
+   ALTER DATABASE TailspinToys SET RECOVERY FULL;
+   GO
+   ```
 
 18.&nbsp;To run the script, select **Execute** from the SSMS toolbar.
     
