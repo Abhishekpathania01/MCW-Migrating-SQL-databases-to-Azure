@@ -564,6 +564,11 @@ In this task, you will create a new online data migration project in DMS for the
     - **Storage account**: Select the sqlmistoreUNIQUEID storage account.
 
     ![The Migration Wizard Configure migration settings blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-migration-wizard-configure-migration-settings.png "Migration Wizard Configure migration settings")
+**>Note: - If you face any issue here such as "Migrating Settings Validation Error"** Error details: Failed to authenticate file share \\SQLSERVER2008\dms-backups Method failed with unexpected  error code 67. Then Please use **IP Address of SQLServer2008 VM instead of Server Name to resolve the issue.  
+
+- **Windows User Azure Database Migration Service impersonates to upload files to Azure Storage**: Enter `13.66.228.107\sqlmiuser`
+    
+    ![](media/servernameip.png)
 
 12. Select **Save** on the **Configure migration setting** blade.
 
