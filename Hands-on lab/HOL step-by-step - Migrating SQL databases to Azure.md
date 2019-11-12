@@ -111,7 +111,7 @@ In this exercise, you will use the Microsoft Data Migration Assistant (DMA) to p
 
 Before you begin the assessments, you need to restore a copy of the `TailspinToys` database in your SQL Server 2008 R2 instance. In this task, you will create an RDP connection to the SqlServer2008 VM and then restore the `TailspinToys` database onto the SQL Server 2008 R2 instance using a backup provided by Tailspin Toys.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your **SqlServer2008** VM by selecting **Resource groups** from the left-hand navigation menu, selecting the **hands-on-lab-SUFFIX** resource group, and selecting the **SqlServer2008** VM from the list of resources. On the SqlServer2008 Virtual Machine's **Overview** blade, select **Connect** on the top menu.
+1. In the [Azure portal](https://portal.azure.com), navigate to your **SqlServer2008** VM by selecting **Resource groups** from the left-hand navigation menu, selecting the **ODL-migrate-sql-xxxxxx** resource group, and selecting the **SqlServer2008** VM from the list of resources. On the SqlServer2008 Virtual Machine's **Overview** blade, select **Connect** on the top menu.
 
     ![The SqlServer2008 VM blade is displayed, with the Connect button highlighted in the top menu.](./media/connect-sqlserver2008.png "Connect to SqlServer2008 VM")
 
@@ -132,7 +132,7 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
 
     ![In the Remote Desktop Connection dialog box, a warning states that the identity of the remote computer cannot be verified, and asks if you want to continue anyway. At the bottom, the Yes button is circled.](./media/remote-desktop-connection-identity-verification-sqlserver2008.png "Remote Desktop Connection dialog")
 
-6. Once logged into the SqlServer2008 VM, download a [backup of the TailspinToys database](https://raw.githubusercontent.com/microsoft/Migrating-SQL-databases-to-Azure/master/Hands-on%20lab/lab-files/Database/TailspinToys.bak), **then you must rename this database file name such as TailspinToys+yourName: example: TailSpinToysJohn** and save it to the `C:\` of the VM.
+6. Once logged into the SqlServer2008 VM, **download** a [backup of the TailspinToys database](https://raw.githubusercontent.com/microsoft/Migrating-SQL-databases-to-Azure/master/Hands-on%20lab/lab-files/Database/TailspinToys.bak), **then you must rename this database file name such as TailspinToys+yourName: example: TailSpinToysJohn** and save it to the `C:\` of the VM.
 
  **Note**: Now your database file name sould not be ***TailspinToys***. 
 
@@ -245,10 +245,10 @@ In this task, you will use the Microsoft Data Migration Assistant (DMA) to perfo
 
 3. In the New project pane, set the following:
 
-    - **Project type**: Select Assessment.
-    - **Project name**: Enter ToAzureSqlDb.
-    - **Source server type**: Select SQL Server.
-    - **Target server type**: Select Azure SQL Database.
+    - **Project type**: Select **Assessment**
+    - **Project name**: Enter **ToAzureSqlDb**
+    - **Source server type**: Select **SQL Server**
+    - **Target server type**: Select **Azure SQL Database**.
 
     ![New project settings for doing an assessment of a migration from SQL Server to Azure SQL Database.](media/dma-new-project-to-azure-sql-db.png "New project settings")
 
@@ -295,10 +295,10 @@ With one PaaS offering ruled out due to feature parity, you will now perform a s
 
 2. In the New project pane, set the following:
 
-    - **Project type**: Select Assessment.
-    - **Project name**: Enter ToSqlMi.
-    - **Source server type**: Select SQL Server.
-    - **Target server type**: Select Azure SQL Database Managed Instance.
+    - **Project type**: Select **Assessment**
+    - **Project name**: Enter **ToSqlMi**
+    - **Source server type**: Select **SQL Server**.
+    - **Target server type**: Select **Azure SQL Database Managed Instance**.
 
     ![New project settings for doing an assessment of a migration from SQL Server to Azure SQL Database Managed Instance.](media/dma-new-project-to-sql-mi.png "New project settings")
 
@@ -312,8 +312,8 @@ With one PaaS offering ruled out due to feature parity, you will now perform a s
 
     - **Server name**: Enter **SQLSERVER2008**.
     - **Authentication type**: Select **SQL Server Authentication**.
-    - **Username**: Enter **WorkshopUser**.
-    - **Password**: Enter **Password.1234567890**.
+    - **Username**: Enter **WorkshopUser**
+    - **Password**: Enter **Password.1234567890**
     - **Encrypt connection**: Check this box.
     - **Trust server certificate**: Check this box.
 
@@ -389,8 +389,8 @@ In this task, you will use the SQL Server Configuration Manager to update the se
 
 3. In the SQL Server (MSSQLSERVER) Properties dialog, select **This account** under Log on as, and enter the following:
 
-    - **Account name**: sqlmiuser
-    - **Password**: Password.1234567890
+    - **Account name**: **sqlmiuser**
+    - **Password**: **Password.1234567890**
 
     ![In the SQL Server (MSSQLSERVER) Properties dialog, This account is selected under Log on as and the sqlmiuser account name and password are entered.](media/sql-server-service-properties.png "SQL Server (MSSQLSERVER) Properties")
 
@@ -467,7 +467,7 @@ In this task, you will use the Azure Cloud shell to retrieve the information nec
 
      ![](media/showadvancedsettings.png)
 
-4. Choose existing resource group **ODL-hands-on-lab-xxxxx** then in the next column enter the value for storage account name which should be unique and lowercase. Also for file share name enter any unique value such as 673683 and click on **Create Storage** 
+4. Choose existing resource group **ODL-migrate-sql-xxxxxx** then in the next column enter the value for storage account name which should be unique and lowercase. Also for file share name enter any unique value such as 673683 and click on **Create Storage** 
 
     ![](media/createstorageaccount.png)
 
@@ -488,7 +488,7 @@ In this task, you will use the Azure Cloud shell to retrieve the information nec
 7. Next, you will enter a second command to retrieve the public IP address of the SqlSerer2008 VM, which you will use to connect to the database on that server. Enter the following PowerShell command, **replacing xxxxx** with your unique identity number:
 
     ```powershell
-    az vm list-ip-addresses -g ODL-migrate-sql-xxxxx -n SqlServer2008
+    az vm list-ip-addresses -g ODL-migrate-sql-xxxxxx -n SqlServer2008
     ```
 
 8. Within the output of the command above, locate and copy the value of the `ipAddress` property within the `publicIpAddresses` object. Paste the value into a text editor, such as Notepad.exe, for later reference.
@@ -502,7 +502,7 @@ In this task, you will use the Azure Cloud shell to retrieve the information nec
 
 In this task, you will create a new online data migration project in DMS for the `TailspinToys` database.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the Azure Database Migration Service by selecting **Resource groups** from the left-hand navigation menu, selecting the **hands-on-lab-SUFFIX** resource group, and then selecting the **tailspin-dms** Azure Database Migration Service in the list of resources.
+1. In the [Azure portal](https://portal.azure.com), navigate to the Azure Database Migration Service by selecting **Resource groups** from the left-hand navigation menu, selecting the **ODL-migrate-sql-xxxxx** resource group, and then selecting the **tailspin-dms** Azure Database Migration Service in the list of resources.
 
     ![The tailspin-dms Azure Database Migration Service is highlighted in the list of resources in the hands-on-lab-SUFFIX resource group.](media/resource-group-dms-resource.png "Resources")
 
@@ -512,9 +512,9 @@ In this task, you will create a new online data migration project in DMS for the
 
 3. On the New migration project blade, enter the following:
 
-    - **Project name**: Enter OnPremToSqlMi.
-    - **Source server type**: Select SQL Server.
-    - **Target server type**: Select Azure SQL Database Managed Instance.
+    - **Project name**: Enter **OnPremToSqlMi**
+    - **Source server type**: Select **SQL Server**
+    - **Target server type**: Select **Azure SQL Database Managed Instance**
     - **Choose type of activity**: Select **Online data migration** and select **Save**.
 
     ![The New migration project blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-new-migration-project-blade.png "New migration project")
@@ -525,8 +525,8 @@ In this task, you will create a new online data migration project in DMS for the
 
     - **Source SQL Server instance name**: Enter the IP address of your SqlServer2008 VM that you copied into a text editor in the previous task. For example, `13.66.228.107`.
     - **Authentication type**: Select SQL Authentication.
-    - **Username**: Enter **WorkshopUser**.
-    - **Password**: Enter **Password.1234567890**.
+    - **Username**: Enter **WorkshopUser**
+    - **Password**: Enter **Password.1234567890**
     - **Connection properties**: Check both Encrypt connection and Trust server certificate.
 
     ![The Migration Wizard Select source blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-migration-wizard-select-source.png "Migration Wizard Select source")
@@ -559,7 +559,7 @@ In this task, you will create a new online data migration project in DMS for the
 
     - **Network share location**: Enter `\\SQLSERVER2008\dms-backups`. This is the path of the SMB network share you created during the before the hands-on lab exercises.
     - **Windows User Azure Database Migration Service impersonates to upload files to Azure Storage**: Enter `SQLSERVER2008\sqlmiuser`
-    - **Password**: Enter Password.1234567890
+    - **Password**: Enter **Password.1234567890**
     - **Subscription containing storage account**: Select the subscription you are using for this hands-on lab.
     - **Storage account**: Select the sqlmistoreUNIQUEID storage account.
 
@@ -668,7 +668,7 @@ In this task, you will connect to the SQL MI database using SSMS, and quickly ve
 2. In the Connect to Server dialog, enter the following:
 
     - **Server name**: Enter the fully qualified domain name of your SQL managed instance, which you copied from the Azure Cloud Shell in a previous task.
-    - **Authentication**: Select SQL Server Authentication.
+    - **Authentication**: Select **SQL Server Authentication**.
     - **Login**: Enter **contosoadmin**
     - **Password**: Enter **IAE5fAijit0w^rDM**
     - Check the **Remember password** box.
@@ -707,7 +707,7 @@ With the `TailspinToys` database now running on SQL MI in Azure, the next step i
 
 In this task, you will create an RDP connection to the JumpBox VM, and then using Visual Studio on the JumpBox, deploy the `TailspinToysWeb` application into the App Service in Azure.
 
-1. In the [Azure portal](https://portal.azure.com), select **Resource groups** in the Azure navigation pane, and select the **hands-on-lab-SUFFIX** resource group from the list.
+1. In the [Azure portal](https://portal.azure.com), select **Resource groups** in the Azure navigation pane, and select the **ODL-migrate-sql-117629** resource group from the list.
 
     ![Resource groups is selected in the Azure navigation pane and the "hands-on-lab-SUFFIX" resource group is highlighted.](./media/resource-groups.png "Resource groups list")
 
@@ -729,8 +729,8 @@ In this task, you will create an RDP connection to the JumpBox VM, and then usin
 
 6. Enter the following credentials when prompted, and then select **OK**:
 
-    - **Username**: sqlmiuser
-    - **Password**: Password.1234567890
+    - **Username**: **sqlmiuser**
+    - **Password**: **Password.1234567890**
 
     ![The credentials specified above are entered into the Enter your credentials dialog.](media/rdc-credentials.png "Enter your credentials")
 
@@ -804,7 +804,7 @@ In this task, you will create an RDP connection to the JumpBox VM, and then usin
 
 In this task, you will make updates to the TailspinToys gamer info web application to enable it to connect to and utilize the SQL MI database.
 
-1. In the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-hand menu, select the **hands-on-lab-SUFFIX** resource group, and then select the **tailspintoysUNIQUEID** App Service from the list of resources.
+1. In the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-hand menu, select the **ODL-migrate-sql-xxxxxx** resource group, and then select the **tailspintoysUNIQUEID** App Service from the list of resources.
 
    ![The tailspintoys App Service is highlighted in the list of resource group resources.](media/rg-app-service.png "Resource group")
 
@@ -881,7 +881,7 @@ In this task, you will configure the client address pool. This is a range of pri
 
 In this task, you will add the networking configuration to your App Service to enable communication with resources in the VNet.
 
-1. In the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-hand menu, select the **hands-on-lab-SUFFIX** resource group, and then select the **tailspintoysUNIQUEID** App Service from the list of resources.
+1. In the [Azure portal](https://portal.azure.com), select **Resource groups** from the left-hand menu, select the **ODL-migrate-sql-xxxxx** resource group, and then select the **tailspintoysUNIQUEID** App Service from the list of resources.
 
    ![The tailspintoys App Service is highlighted in the list of resource group resources.](media/rg-app-service.png "Resource group")
 
