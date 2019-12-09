@@ -562,6 +562,7 @@ In this task, you will create a new online data migration project in DMS for the
     - **Password**: Enter **Password.1234567890**
     - **Subscription containing storage account**: Select the subscription you are using for this hands-on lab.
     - **Storage account**: Select the sqlmistoreUNIQUEID storage account.
+    - **Advanced Settings**: Use drop-down and re-name the database name with your database name such as **TailSpinToys+yourname** to avoid any conflicts with migrating database in SQL MI ( here you have shared SQL MI resource, so having same name databases may conflicts) 
 
     ![The Migration Wizard Configure migration settings blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-migration-wizard-configure-migration-settings.png "Migration Wizard Configure migration settings").
 
