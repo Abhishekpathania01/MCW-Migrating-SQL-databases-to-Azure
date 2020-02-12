@@ -389,8 +389,8 @@ In this task, you will use the SQL Server Configuration Manager to update the se
 
 3. In the SQL Server (MSSQLSERVER) Properties dialog, select **This account** under Log on as, and enter the following:
 
-    - **Account name**: **sqlmiuser**
-    - **Password**: **Password.1234567890**
+    - Account name: **sqlmiuser**
+    - Password: **Password.1234567890**
 
     ![In the SQL Server (MSSQLSERVER) Properties dialog, This account is selected under Log on as and the sqlmiuser account name and password are entered.](media/sql-server-service-properties.png "SQL Server (MSSQLSERVER) Properties")
 
@@ -567,11 +567,14 @@ In this task, you will create a new online data migration project in DMS for the
     ![The Migration Wizard Configure migration settings blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-migration-wizard-configure-migration-settings.png "Migration Wizard Configure migration settings").
 
 
-> **Note**:- **If you face any issue here, such as "Migrating Settings Validation Error"** Error details: Failed to authenticate file share \\SQLSERVER2008\dms-backups Method failed with unexpected  error code 67. Then Please use **IP Address of SQLServer2008 VM** instead of Server Name to resolve the issue.  
+> **Note**:- **If you face any issue here, such as "Migrating Settings Validation Error"** Error details: Failed to authenticate file share \\SQLSERVER2008\dms-backups Method failed with unexpected  error code 67. Then Please use **PRIVATE IP Address of SQLServer2008 VM** instead of Server Name to resolve the issue.  
 
-* **Windows User Azure Database Migration Service impersonates to upload files to Azure Storage**: Enter `13.66.228.107\sqlmiuser`
+* **Network share location**: Enter `\\10.4.4.65\dms-backups`
+* **Replace** '10.4.4.65' with your VM's Private IP. 
     
-   ![](media/servernameip.png)
+   ![](media/vmip.png)
+   
+   ![](media/networkshare.png)
 
 12. Select **Save** on the **Configure migration setting** blade.
 
