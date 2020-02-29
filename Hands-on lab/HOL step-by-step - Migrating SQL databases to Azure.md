@@ -799,7 +799,7 @@ In this task, you will create an RDP connection to the JumpBox VM, and then usin
 
     ![In the Pick a publish target dialog, App Service is selected and Select Existing is selected.](media/visual-studio-pick-publish-target.png "Visual Studio")
 
-21. In the Select Existing App Service dialog, select the subscription you are using for this hands-on lab, then expand the hands-on-lab-SUFFIX resource group folder and select the **tailspintoysUNIQUEID** App Service.
+21. In the Select Existing App Service dialog, select the subscription you are using for this hands-on lab, then expand the **ODL-migrate-sql-xxxxxx** resource group folder and select the **tailspintoysUNIQUEID** App Service.
 
     ![The tailspintoysUNIQUEID App Service is selected in the list of existing App Services.](media/visual-studio-select-existing-app-service.png "Visual Studio")
 
@@ -833,7 +833,7 @@ In this task, you will make updates to the TailspinToys gamer info web applicati
     Server=tcp:your-sqlmi-host-fqdn-value,1433;Database=TailspinToys;User ID=contosoadmin;Password=IAE5fAijit0w^rDM;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=True;
     ```
 
-5. In the Add/Edit connection string dialog, replace `your-sqlmi-host-fqdn-value` with the fully qualified domain name for your SQL MI that you copied to a text editor earlier from the Azure Cloud Shell. Also replace 'User ID' with **contosoadmin** and 'Password' with **IAE5fAijit0w^rDM**
+5. In the Add/Edit connection string dialog, replace `your-sqlmi-host-fqdn-value` with the fully qualified domain name for your SQL MI that you copied to a text editor earlier from the Azure Cloud Shell. 
 
     ![The your-sqlmi-host-fqdn-value string is highlighted in the connection string.](media/webappcontextconnectionstring.png "Edit Connection String")
 
