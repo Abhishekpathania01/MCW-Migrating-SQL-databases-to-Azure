@@ -132,10 +132,8 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
 
     ![In the Remote Desktop Connection dialog box, a warning states that the identity of the remote computer cannot be verified, and asks if you want to continue anyway. At the bottom, the Yes button is circled.](./media/remote-desktop-connection-identity-verification-sqlserver2008.png "Remote Desktop Connection dialog")
 
-6. Once logged into the SqlServer2008 VM, **download** a [backup of the TailspinToys database](https://raw.githubusercontent.com/microsoft/Migrating-SQL-databases-to-Azure/master/Hands-on%20lab/lab-files/Database/TailspinToys.bak), **then you must rename this database file name such as TailspinToys+yourName: example: TailSpinToysJohn** and save it to the `C:\` of the VM.
-
- **Note**: Now your database file name sould not be ***TailspinToys***. 
-
+6. Once logged into the SqlServer2008 VM, **download** a [backup of the TailspinToys database](https://raw.githubusercontent.com/microsoft/Migrating-SQL-databases-to-Azure/master/Hands-on%20lab/lab-files/Database/TailspinToys.bak), save it to the `C:\` of the VM.
+ 
 7. Next, open **Microsoft SQL Server Management Studio 17** by entering "sql server" into the search bar in the Windows Start menu.
 
     ![SQL Server is entered into the Windows Start menu search box, and Microsoft SQL Server Management Studio 17 is highlighted in the search results.](media/start-menu-ssms-17.png "Windows start menu search")
@@ -148,7 +146,7 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
 
     ![In the SSMS Object Explorer, the context menu for Databases is displayed and Restore Database is highlighted.](media/ssms-databases-restore.png "SSMS Object Explorer")
 
-10. You will now restore the `TailspinToys` (your database name) database using the downloaded `TailspinToys.bak` file. On the **General** page of the Restore Database dialog, select **Device** under Source, and then select the Browse (...) button to the right of the Device box.
+10. You will now restore the `TailspinToys` database using the downloaded `TailspinToys.bak` file. On the **General** page of the Restore Database dialog, select **Device** under Source, and then select the Browse (...) button to the right of the Device box.
 
     ![Under Source in the Restore Database dialog, Device is selected and highlighted, and the Browse button is highlighted.](media/ssms-restore-database-source.png "Restore Database source")
 
@@ -157,8 +155,6 @@ Before you begin the assessments, you need to restore a copy of the `TailspinToy
     ![In the Select backup devices dialog, the Add button is highlighted.](media/ssms-restore-database-select-devices.png "Select backup devices")
 
 12. In the **Locate Backup File** dialog, browse to the location you saved the downloaded `TailspinToys.bak` file, select that file, and then select **OK**.
-
-**NOTE**: **You must have unique database file name such as** ***Tailspintoys+YourName*** as you renamed the database file name after downloading in **Step 6** **so please make sure to use the same database name here as well**
 
    ![In the Location Backup File dialog, the TailspinToys.bak file is selected and highlighted.](media/ssms-restore-database-locate-backup-file.png "Locate Backup File")
 
@@ -260,8 +256,8 @@ In this task, you will use the Microsoft Data Migration Assistant (DMA) to perfo
 
 6. On the **Sources** screen, enter the following into the **Connect to a server** dialog that appears on the right-hand side:
 
-    - **Server name**: Enter **SQLSERVER2008**.
-    - **Authentication type**: Select **SQL Server Authentication**.
+    - **Server name**: Enter **SQLSERVER2008**
+    - **Authentication type**: Select **SQL Server Authentication**
     - **Username**: Enter **WorkshopUser**
     - **Password**: Enter **Password.1234567890**
     - **Encrypt connection**: Check this box.
@@ -310,8 +306,8 @@ With one PaaS offering ruled out due to feature parity, you will now perform a s
 
 5. On the **Sources** screen, enter the following into the **Connect to a server** dialog that appears on the right-hand side:
 
-    - **Server name**: Enter **SQLSERVER2008**.
-    - **Authentication type**: Select **SQL Server Authentication**.
+    - **Server name**: Enter **SQLSERVER2008**
+    - **Authentication type**: Select **SQL Server Authentication**
     - **Username**: Enter **WorkshopUser**
     - **Password**: Enter **Password.1234567890**
     - **Encrypt connection**: Check this box.
@@ -432,7 +428,7 @@ To perform online data migrations, DMS looks for backups and logs in the SMB sha
 
     ![The Browse button is highlighted in the Select Backup Destination dialog.](media/ssms-select-backup-destination.png "Select Backup Destination")
 
-7. In the Location Database Files dialog, select the `C:\dms-backups` folder, enter `TailspinToys.bak` (**Your database file name will be different, please make sure to use exact name** into the File name field, and then select **OK**.
+7. In the Location Database Files dialog, select the `C:\dms-backups` folder, enter `TailspinToys.bak`, and then select **OK**.
 
     ![In the Select the file pane, the C:\dms-backups folder is selected and highlighted and TailspinToys.bak is entered into the File name field.](media/ssms-locate-database-files.png "Location Database Files")
 
@@ -562,12 +558,16 @@ In this task, you will create a new online data migration project in DMS for the
     - **Password**: Enter **Password.1234567890**
     - **Subscription containing storage account**: Select the subscription you are using for this hands-on lab.
     - **Storage account**: Select the sqlmistoreUNIQUEID storage account.
-    - **Advanced Settings**: Use drop-down and re-name the database name with your database name such as **TailSpinToys+yourname** to avoid any conflicts with migrating database in SQL MI ( here you have shared SQL MI resource, so having same name databases may conflicts) 
+    - **Advanced Settings**: Use drop-down and re-name the database name with +yourname such as **TailSpinToys+yourname** to avoid any conflicts with migrating database in SQL MI( here you have shared SQL MI resource, so having same name databases may conflicts) 
+ 
+**Note**: Please make sure you have renamed the database name from **TailSpinToys** to **TailSpinToys+YourName**
 
-    ![The Migration Wizard Configure migration settings blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-migration-wizard-configure-migration-settings.png "Migration Wizard Configure migration settings").
+   ![](media/renametailspin.png)
+
+   ![The Migration Wizard Configure migration settings blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-migration-wizard-configure-migration-settings.png "Migration Wizard Configure migration settings").
 
 
-> **Note**:- **If you face any issue here, such as "Migrating Settings Validation Error"** Error details: Failed to authenticate file share \\SQLSERVER2008\dms-backups Method failed with unexpected  error code 67. Then Please use **PRIVATE IP Address of SQLServer2008 VM** instead of Server Name to resolve the issue.  
+> **Note**:- If you face any issue here, such as "**Migrating Settings Validation Error"** Error details: Failed to authenticate file share \\SQLSERVER2008\dms-backups Method failed with unexpected  error code 67. Then Please use **PRIVATE IP Address** of SQLServer2008 VM instead of Server Name to resolve the issue.  
 
 * **Network share location**: Enter `\\10.4.4.65\dms-backups`
 * **Replace** '10.4.4.65' with your VM's Private IP. 
@@ -833,9 +833,13 @@ In this task, you will make updates to the TailspinToys gamer info web applicati
     Server=tcp:your-sqlmi-host-fqdn-value,1433;Database=TailspinToys;User ID=contosoadmin;Password=IAE5fAijit0w^rDM;Trusted_Connection=False;Encrypt=True;TrustServerCertificate=True;
     ```
 
+>Also you need to update the database name as you renamed it earlier at the time of migration. 
+
 5. In the Add/Edit connection string dialog, replace `your-sqlmi-host-fqdn-value` with the fully qualified domain name for your SQL MI that you copied to a text editor earlier from the Azure Cloud Shell. 
 
     ![The your-sqlmi-host-fqdn-value string is highlighted in the connection string.](media/webappcontextconnectionstring.png "Edit Connection String")
+
+>Also you need to update the database name as you renamed it earlier at the time of migration. 
 
 6. The updated value should look similar to the following screenshot.
 
